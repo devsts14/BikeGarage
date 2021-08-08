@@ -1,0 +1,66 @@
+@import '../../../styles/variables';
+
+.navbar {
+  height: 8.5rem;
+  background-color: $primary-color;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__logo {
+      color: white;
+      font-size: 3rem;
+  }
+  &__list {
+    list-style: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    &_item {
+      margin-left: 2rem;
+      border-bottom: 2px solid transparent;
+      padding: 1rem 0.2rem;
+      color: rgb(161, 161, 161);
+      transition: color 0.3s;
+      &:hover {
+        color: white;
+      }
+    }
+    
+    .cart {
+      color: white;
+      position: relative;
+      margin-right: 3.5rem;
+      &__count {
+        height: 2.5rem;
+        width: 2.5rem;
+        background-color: $secondary-color;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 3;
+        border-radius: 50%;
+        top: -15px;
+        right: -5px;
+      }
+    }
+  }
+  &__login{
+      border: none;
+      outline: none;
+      background-color: $secondary-color;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: white;
+      padding: 1rem 3rem;
+      border-radius: 1rem;
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover{
+          background-color: darken($secondary-color, $amount: 10);
+      }
+  }
+}
