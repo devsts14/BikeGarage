@@ -10,11 +10,14 @@ const ModalOverlay = (props) => {
   const [login, setLogin] = useState(true);
   return props.isModalVisible ? (
     <div className={styles.loginModal}>
-      <i onClick={()=>props.setIsModalVisible(false)} className={`fas fa-times ${styles.close}`}></i>
+      <i
+        onClick={() => props.setIsModalVisible(false)}
+        className={`fas fa-times ${styles.close}`}
+      ></i>
       {login ? (
         <div className={styles.login}>
           <h1 className={styles.login__head}>LOGIN</h1>
-          <LoginForm />
+          <LoginForm setIsModalVisible={props.setIsModalVisible}/>
           <div className={styles.login__socialMedia}>
             <center>Or</center>
             <center style={{ margin: "2rem 0" }}>
@@ -36,7 +39,7 @@ const ModalOverlay = (props) => {
       ) : (
         <div className={styles.login}>
           <h1 className={styles.login__head}>REGISTER</h1>
-          <SignupForm />
+          <SignupForm setIsModalVisible={props.setIsModalVisible}/>
           <div className={styles.login__socialMedia}>
             <center>Or</center>
             <center style={{ margin: "2rem 0" }}>
@@ -61,7 +64,12 @@ const ModalOverlay = (props) => {
 };
 
 const ModalBackground = (props) => {
-  return props.isModalVisible?<div onClick={()=>props.setIsModalVisible(false)} className={styles.modalBackground}></div>:null;
+  return props.isModalVisible ? (
+    <div
+      onClick={() => props.setIsModalVisible(false)}
+      className={styles.modalBackground}
+    ></div>
+  ) : null;
 };
 const LoginModal = (props) => {
   const [mounted, setMounted] = useState(false);
@@ -74,11 +82,17 @@ const LoginModal = (props) => {
   return mounted ? (
     <React.Fragment>
       {createPortal(
-        <ModalOverlay isModalVisible={props.isModalVisible} setIsModalVisible={props.setIsModalVisible} />,
+        <ModalOverlay
+          isModalVisible={props.isModalVisible}
+          setIsModalVisible={props.setIsModalVisible}
+        />,
         document.getElementById("loginModal")
       )}
       {createPortal(
-        <ModalBackground isModalVisible={props.isModalVisible} setIsModalVisible={props.setIsModalVisible}/>,
+        <ModalBackground
+          isModalVisible={props.isModalVisible}
+          setIsModalVisible={props.setIsModalVisible}
+        />,
         document.getElementById("modalBackground")
       )}
     </React.Fragment>

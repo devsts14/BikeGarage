@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import cartIcon from "@iconify/icons-akar-icons/cart";
 import styles from './Navbar.module.scss'
 import LoginModal from "../../Modals/LoginModal";
-const Navbar = () => {
+const Navbar = ({user,token}) => {
   const [isModalVisible,setIsModalVisible]=useState(false)
   return (
     <nav className={styles.navbar}>
@@ -43,7 +43,7 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <button onClick={()=>setIsModalVisible(true)} className={styles.navbar__login}>LOGIN</button>
+          {!token?<button onClick={()=>setIsModalVisible(true)} className={styles.navbar__login}>LOGIN</button>:<div className={styles.navbar__user}>{user.name[0].toUpperCase()}</div>}
         </li>
       </ul>
     </nav>

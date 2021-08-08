@@ -63,4 +63,17 @@
           background-color: darken($secondary-color, $amount: 10);
       }
   }
+  &__user{
+    font-weight: bold;
+    
+    text-align: center;
+    line-height:4rem;
+    width:4rem;
+    height:4rem;
+   font-size: 3rem;
+    padding: 0;
+    border-radius: 50%;
+    background-color: $secondary-color;
+   
+  }
 }

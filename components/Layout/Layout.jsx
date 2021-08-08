@@ -2,10 +2,11 @@ import React from 'react'
 import Navbar from '../Navbar/Navigation/Navbar'
 import LocationBar from '../Navbar/LocationBar/LocationBar'
 
-const Layout = ({children}) => {
+const Layout = ({children,user,token}) => {
+    console.log(user,token)
     return (
         <>
-        <Navbar/>
+        <Navbar user={user} token={token}/>
         <LocationBar/>
         <div>
             {children}

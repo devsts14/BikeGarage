@@ -1,9 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import useInput from "../../custom-hooks/use-input";
+import { loginUser } from '../../utils/authUser';
 
 const isPassword = (value) => value.trim().length > 6;
 const isEmail = (value) => value.includes("@");
-const LoginForm = () => {
+const LoginForm = ({setIsModalVisible}) => {
+  const [errorMsg,setErrorMsg]=useState("")
     const {
       value: emailValue,
       isValid: emailIsValid,
@@ -31,6 +33,11 @@ const LoginForm = () => {
       if (!formIsValid) {
         return;
       }
+      const user={
+        email:emailValue,
+        password:passwordValue
+      }
+      loginUser(user,setErrorMsg,setIsModalVisible)
       console.log("Submitted!");
       resetEmail();
       resetPassword();

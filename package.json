@@ -3,16 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "nodemon server.js",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "next": "11.0.1",
+    "@sendgrid/mail": "^7.4.5",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "google-auth-library": "^7.5.0",
+    "http": "^0.0.1-security",
+    "js-cookie": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.5",
+    "next": "^11.0.1",
     "node-sass": "^5.0.0",
+    "nodemon": "^2.0.12",
+    "nookies": "^2.5.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-responsive-carousel": "^3.2.20"
+    "react-google-login": "^5.2.2",
+    "react-notifications-component": "^3.1.0",
+    "react-responsive-carousel": "^3.2.20",
+    "react-router-dom": "^5.2.0",
+    "validator": "^13.6.0"
   },
   "devDependencies": {
     "@iconify/icons-akar-icons": "^1.1.18",

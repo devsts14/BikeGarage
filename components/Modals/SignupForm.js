@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import useInput from "../../custom-hooks/use-input";
-const isNotEmpty = (value) => value.trim() !== "";
+import {registerUser} from '../../utils/authUser'
 
+const isNotEmpty = (value) => value.trim() !== "";
 const isPassword = (value) => value.trim().length > 6;
 const isEmail = (value) => value.includes("@");
+
 const SignupForm = () => {
+  const [errorMsg,setErrorMsg]=useState('')
   const {
     value: firstNameValue,
     isValid: firstNameIsValid,
@@ -40,6 +43,12 @@ const SignupForm = () => {
     if (!formIsValid) {
       return;
     }
+    const user={
+      name:firstNameValue,
+      email:emailValue,
+      password:passwordValue
+    }
+    registerUser(user,setErrorMsg)
     console.log("Submitted!");
     resetEmail();
     resetPassword();

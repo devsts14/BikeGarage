@@ -27,3 +27,34 @@ a {
 // @import '../components/Navbar/navbar'
 @import './form';
 
+
+@mixin button{
+  background-color: $primary-color;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover{
+      background-color: $secondary-color;
+    }
+  }
+
+.activate{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40rem;
+  &__intro{
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  &__btn{
+   @include button;
+
+  }
+}
+
+
